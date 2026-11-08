@@ -1,0 +1,9 @@
+{
+  "name": "Coin Idle: Gacha Pools",
+  "short_name": "Coin Idle",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#14192b",
+  "theme_color": "#14192b"
+}
