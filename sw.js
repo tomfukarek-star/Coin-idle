@@ -23,9 +23,32 @@ self.addEventListener("activate", event => {
   );
 });
 
+  
+self.addEventListener("fetch", event => {
+  if (event.request.method !== "GET") return;
+
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      fetch(event.request)
+        .then(response => {
+          const update = caches.open(CACHE).then(cache =>
+            cache.put(event.request, response.clone())
+          );
+          event.waitUntil(update);
+          return response;
+        })
+        .catch(() =>
+          caches.match(event.request).then(cached =>
+            cached || caches.match("./index.html")
+          )
+        )
+    );
+    return;
+  }
+
   event.respondWith(
-    caches.match(event.request).then(cached => {
-      return cached || fetch(event.request);
-    })
+    caches.match(event.request).then(cached =>
+      cached || fetch(event.request)
+    )
   );
 });
