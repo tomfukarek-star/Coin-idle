@@ -291,7 +291,7 @@ function render(){
    '<button class="arrow arrow-r" onclick="movePool(1)">&#8250;</button></div>'+
    '<div class="row"><span>Owned</span><span>'+poolOwned(p)+' / '+p.names.length+'</span></div>'+
    '<div class="row"><span>Pool income</span><span>'+poolIncome(p).toFixed(2)+' / day <small style="color:#6f688c">(cap '+p.cap+')</small></span></div>';
-  if(p.secret) h+='<div class="row"><span>Secret pity</span><span>'+fmtInt(S.secretPity[p.id]||0)+' / '+fmtInt(secretPityFor(p.pity))+'</span></div>';
+  if(p.secret) h+='<div class="row"><span>Secret pity</span><span>'+fmtInt(S.secretPity[p.id]||0)+' / '+fmtInt(secretPityFor(p.secret.pity))+'</span></div>';
   h+='<div class="odds">';
   for(var i=0;i<p.odds.length;i++) h+='<div style="background:'+RARITY[i].c+'">'+RARITY[i].n.slice(0,4).toUpperCase()+'<br>'+p.odds[i]+'%</div>';
   h+='</div><div class="grid">'+tiles(p)+'</div>'+
