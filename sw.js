@@ -1,4 +1,4 @@
-const CACHE = "coin-idle-v2";
+const CACHE = "coin-idle-v3";
 
 const FILES = [
   "./",
