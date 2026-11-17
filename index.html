@@ -174,7 +174,7 @@ function pullPool(p,payShards){
  var rar=rollRarity(p.odds,luckMult());
  if(p.secret){
   S.secretPity[p.id]=(S.secretPity[p.id]||0)+1;
-  var need=secretPityFor(p.pity);
+  var need=secretPityFor(p.secret.pity);
   var forced=S.secretPity[p.id]>=need;
   var hit=forced||Math.random()<1/secretOddsFor(p.secret.odds,rar);
   if(hit){
